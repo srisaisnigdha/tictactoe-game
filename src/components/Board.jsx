@@ -3,9 +3,7 @@ import Square from './Square'
 
 const Board = ({squares,handleSquareClick}) => {
 
-    console.log(squares)
-
-    
+    console.log(squares)    
 
     const renderSquare = (position) => {
         return (

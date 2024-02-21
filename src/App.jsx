@@ -1,17 +1,14 @@
-import Board from './components/Board';
-import { useState } from 'react'
 import './styles.scss';
+import Board from './components/Board';
+import StatusMessage from './components/StatusMessage';
+import { useState } from 'react'
 import { calculateWinner } from './winner';
 
 function App() {
    const [squares, setSquares] = useState(Array(9).fill(null));
    const [isXNext, setIsXNext] = useState(false)
 
-   const winner = calculateWinner(winner)
-   const nextPlayer = isXNext ? 'X' : 'O'
-   const statusMessage = winner?`Winner is ${winner}` : `Next Player is ${nextPlayer}`
-
-   console.log(winner)
+   const winner = calculateWinner(squares)   //to determine if there's a winner based on the current state of the board.
 
    const handleSquareClick = clickedPosition => {
 
@@ -37,7 +34,7 @@ function App() {
 
    return (
       <div className='app'>
-         <h2>{statusMessage}</h2>
+         <StatusMessage winner={winner} isXNext={isXNext} squares={squares} />
          <Board squares={squares} handleSquareClick={handleSquareClick} />
       </div>
    );
