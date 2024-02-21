@@ -1,34 +1,11 @@
 import Square from './Square'
-import { useState } from 'react'
 
-const Board = () => {
 
-    const [squares, setSquares] = useState(Array(9).fill(null));
-    const [isXNext, setIsXNext] = useState(false)
+const Board = ({squares,handleSquareClick}) => {
 
     console.log(squares)
 
-    const handleSquareClick = clickedPosition => {
-
-        if (squares[clickedPosition] != null) // truthy value = not null
-        {
-            return; // just get out of the function
-        }
-
-        // using callback function
-        // By creating a new array (here - currentSquare) with the updated values, you guarantee that React detects the change in state correctly. If you were to modify the existing array directly, React might not recognize the change, leading to potential bugs or inconsistencies in the UI.
-        setSquares(currentSquare => {
-            return currentSquare.map((squareValue, position) => {
-                if (clickedPosition === position) {
-                    return isXNext ? 'X' : 'O';
-                }
-                return squareValue;
-            })
-        })
-
-        setIsXNext((currentIsXNext) => !currentIsXNext)  // if the current toggled is 'X', then make it false, it means making to print 'O' for next toggle
-
-    }
+    
 
     const renderSquare = (position) => {
         return (
