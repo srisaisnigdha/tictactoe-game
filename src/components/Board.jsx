@@ -7,7 +7,8 @@ const Board = () => {
     console.log(squares)
 
     const handleSquareClick = clickedPosition => {
-        // using callback fn
+        // using callback function
+        // By creating a new array (here - currentSquare) with the updated values, you guarantee that React detects the change in state correctly. If you were to modify the existing array directly, React might not recognize the change, leading to potential bugs or inconsistencies in the UI.
         setSquares(currentSquare => {
             return currentSquare.map((squareValue, position) => {
                 if (clickedPosition === position) {
