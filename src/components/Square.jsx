@@ -21,9 +21,9 @@
 // }; // using object destructuring, because we know only one prop
 
 
-const Square = ({ value}) => {
+const Square = ({ value ,onClick}) => {
    return (
-      <button type="button" className="square">
+      <button type="button" className="square" onClick={onClick}>
          {value}
       </button>
    );
