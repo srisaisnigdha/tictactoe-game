@@ -1,4 +1,6 @@
-const StatusMessage = ({ winner, isXNext, squares }) => {
+const StatusMessage = ({ winner, gamingBoard }) => {
+
+    const { squares, isXNext } = gamingBoard  // destructuring of gaming board ==> replacement for gamingBoard.squares, gamingBoard.isXNext
 
     const noMovesLeft = squares.every((squareValue) => squareValue != null)
     const nextPlayer = isXNext ? 'X' : 'O'
@@ -13,7 +15,7 @@ const StatusMessage = ({ winner, isXNext, squares }) => {
         }
 
         if (!winner && noMovesLeft) {
-            return <> <span className="text-orange">0</span> and <span className="text-green">X</span> tied</>
+            return <> <span className="text-orange">O</span> and <span className="text-green">X</span> tied</>
         }
 
         if (!winner && !noMovesLeft) {
