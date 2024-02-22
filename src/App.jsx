@@ -69,12 +69,19 @@ function App() {
       setCurrentMove(move)  // if move===5, then it moves to 5th state ==> to change to the gaming state that we want
    }
 
+   // it will just update the state (to reset)
+   const onNewGameStart = () => {
+      setHistory(NEW_GAME);
+      setCurrentMove(0);
+   }
+
    return (
       <div className='app'>
          {/* <StatusMessage winner={winner} isXNext={isXNext} squares={squares} /> */}
          <StatusMessage winner={winner} gamingBoard={gamingBoard} />
          <Board squares={gamingBoard.squares} handleSquareClick={handleSquareClick} />
 
+         <button type='button' className={`btn-reset ${winner ? 'active' : ''}`} onClick={onNewGameStart}>Start New Game</button>
          <h2>Current Game History</h2>
          <History history={history} moveTo={moveTo} currentMove={currentMove} />
       </div>
