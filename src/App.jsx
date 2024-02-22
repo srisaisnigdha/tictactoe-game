@@ -5,10 +5,12 @@ import History from './components/History';
 import { useState } from 'react'
 import { calculateWinner } from './winner';
 
+const NEW_GAME = [{ squares: Array(9).fill(null), isXNext: false }]
+
 function App() {
    // const [squares, setSquares] = useState(Array(9).fill(null));
    // const [isXNext, setIsXNext] = useState(false)
-   const [history, setHistory] = useState([{ squares: Array(9).fill(null), isXNext: false }]); // deafult element
+   const [history, setHistory] = useState(NEW_GAME); // default state or initial state
    const [currentMove, setCurrentMove] = useState(0);
 
 
