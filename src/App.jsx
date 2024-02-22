@@ -17,7 +17,7 @@ function App() {
    const gamingBoard = history[currentMove]  // derived value
 
    // const winner = calculateWinner(squares)   //(derived) to determine if there's a winner based on the current state of the board.
-   const winner = calculateWinner(gamingBoard.squares)
+   const { winner, winningSquares } = calculateWinner(gamingBoard.squares)
 
    console.log({ history, currentMove })
 
@@ -79,7 +79,7 @@ function App() {
       <div className='app'>
          {/* <StatusMessage winner={winner} isXNext={isXNext} squares={squares} /> */}
          <StatusMessage winner={winner} gamingBoard={gamingBoard} />
-         <Board squares={gamingBoard.squares} handleSquareClick={handleSquareClick} />
+         <Board squares={gamingBoard.squares} handleSquareClick={handleSquareClick} winningSquares={winningSquares} />
 
          <button type='button' className={`btn-reset ${winner ? 'active' : ''}`} onClick={onNewGameStart}>Start New Game</button>
          <h2>Current Game History</h2>
